@@ -1,0 +1,12 @@
+*.aux
+*.log
+*.out
+*.pdf
+*.bak
+*.fdb_latexmk
+*.fls
+*.gz
+*.pyc
+.DS_Store
+%OUTFILE%.tex
+.vscode/settings.json

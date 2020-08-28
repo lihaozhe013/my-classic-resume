@@ -1,0 +1,8 @@
+services:
+  converter:
+    container_name: markdown2pdf
+    build: .
+    image: markdown2pdf:latest
+    user: "${UID}:${GID}"
+    volumes:
+      - .:/workspace
