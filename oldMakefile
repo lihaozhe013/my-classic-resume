@@ -1,0 +1,5 @@
+PDF=resume.pdf
+TEX=resume.tex
+
+all:
+	pdflatex $(TEX)
