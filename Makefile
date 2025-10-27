@@ -10,6 +10,7 @@ TARGET_FILE = resume
 WORKDIR_IN_CONTAINER = /workdir
 LOCAL_PWD = ${PWD}
 
+default: all
 # ----------------- Container Management -----------------
 start:
 	@echo "--- 1. Starting Docker container: $(CONTAINER_NAME) ---"
