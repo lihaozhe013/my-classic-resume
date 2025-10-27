@@ -10,7 +10,7 @@ TARGET_FILE = resume
 WORKDIR_IN_CONTAINER = /workdir
 LOCAL_PWD = ${PWD}
 
-default: all
+default: compile
 # ----------------- Container Management -----------------
 start:
 	@echo "--- 1. Starting Docker container: $(CONTAINER_NAME) ---"
@@ -26,17 +26,15 @@ stop:
 	@echo "--- 1. Stopping Docker container: $(CONTAINER_NAME) ---"
 	docker stop $(CONTAINER_NAME) || true
 	@echo "Container $(CONTAINER_NAME) has been stopped."
-
-remove:
 	@echo "--- 2. Removing Docker container: $(CONTAINER_NAME) ---"
 	docker rm $(CONTAINER_NAME) || true
 	@echo "Container $(CONTAINER_NAME) has been removed."
 
 # ----------------- Compilation Tasks -----------------
-all:
+compile:
 	docker exec $(CONTAINER_NAME) pdflatex $(TARGET_FILE).tex
 
-compile:
+all:
 	@echo "--- Compiling $(TARGET_FILE).tex using pdflatex ---"
 	# First compilation (generating .aux, .toc, and other files)
 	docker exec $(CONTAINER_NAME) pdflatex $(TARGET_FILE).tex
