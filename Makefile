@@ -5,7 +5,7 @@
 
 # ----------------- Configuration -----------------
 DOCKER_IMAGE = registry.gitlab.com/islandoftex/images/texlive:latest
-CONTAINER_NAME = latex_compiler_session
+CONTAINER_NAME = resume_builder
 TARGET_FILE = resume
 WORKDIR_IN_CONTAINER = /workdir
 LOCAL_PWD = ${PWD}
@@ -23,10 +23,11 @@ start:
 	@echo "Container $(CONTAINER_NAME) is running and mounted to $(LOCAL_PWD)"
 
 stop:
-	@echo "--- 2. Stopping Docker container: $(CONTAINER_NAME) ---"
+	@echo "--- 1. Stopping Docker container: $(CONTAINER_NAME) ---"
 	docker stop $(CONTAINER_NAME) || true
 	@echo "Container $(CONTAINER_NAME) has been stopped."
-delete:
+
+remove:
 	@echo "--- 2. Removing Docker container: $(CONTAINER_NAME) ---"
 	docker rm $(CONTAINER_NAME) || true
 	@echo "Container $(CONTAINER_NAME) has been removed."
@@ -36,7 +37,7 @@ all:
 	docker exec $(CONTAINER_NAME) pdflatex $(TARGET_FILE).tex
 
 compile:
-	@echo "--- 3. Compiling $(TARGET_FILE).tex using pdflatex ---"
+	@echo "--- Compiling $(TARGET_FILE).tex using pdflatex ---"
 	# First compilation (generating .aux, .toc, and other files)
 	docker exec $(CONTAINER_NAME) pdflatex $(TARGET_FILE).tex
 	# (If using Biber or BibTeX, insert the corresponding exec command here)
