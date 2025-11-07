@@ -80,14 +80,12 @@ quick: start compile stop
 # ----------------- Formatting -----------------
 format:
 	@echo "--- 5. Formatting all .tex files with latexindent ---"
-	@echo "Note: This runs inside container $(CONTAINER_NAME). Ensure it's started (make start)."
-	docker exec $(CONTAINER_NAME) sh -lc '\
+	@echo "Note: This runs inside container $(CONTAINER_NAME) as host user."
+	docker exec -u "$(shell id -u):$(shell id -g)" $(CONTAINER_NAME) sh -lc '\
 		set -e; \
 		cd $(WORKDIR_IN_CONTAINER); \
-		for f in $$(find . -type f -name "*.tex"); do \
-			echo "Formatting $$f"; \
-			latexindent "$$f" > "$$f.__tmp__" && mv "$$f.__tmp__" "$$f"; \
-		done; \
+		echo "Finding and formatting all .tex files..."; \
+		find . -type f -name "*.tex" -exec latexindent -n -w -b=0 {} +; \
 		echo "All .tex files formatted." \
 	'
 

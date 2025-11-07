@@ -9,3 +9,4 @@ resume.fls
 resume.synctex.gz
 .DS_Store
 indent.log
+.gitignore
