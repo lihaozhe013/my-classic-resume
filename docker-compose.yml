@@ -1,0 +1,8 @@
+services:
+  latex:
+    image: registry.gitlab.com/islandoftex/images/texlive:latest
+    container_name: resume_builder
+    working_dir: /workdir
+    volumes:
+      - .:/workdir
+    command: tail -f /dev/null
