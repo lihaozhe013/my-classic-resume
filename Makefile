@@ -7,6 +7,7 @@
 COMPOSE = docker compose
 SERVICE = latex
 TARGET_FILE = resume
+TEMP_FILES_SUFFIX := bak0
 
 default: compile
 # ----------------- Container Management -----------------
@@ -62,6 +63,7 @@ clean:
 		$(TARGET_FILE).ilg \
 		$(TARGET_FILE).ind
 	rm -f $(TARGET_FILE).pdf
+	find . -regextype posix-extended -regex '.*\.'$(TEMP_FILES_SUFFIX)'$$' -delete
 	@echo "Cleanup finished."
 
 quick: start compile stop
@@ -74,7 +76,8 @@ format:
 		set -e; \
 		cd /workdir; \
 		echo "Finding and formatting all .tex files..."; \
-		find . -type f -name "*.tex" -exec latexindent -n -w -b=0 {} +; \
+		find . -type f -name "*.tex" -exec latexindent -w {} +; \
+		find . -regextype posix-extended -regex ".*\.$(TEMP_FILES_SUFFIX)$$" -delete; \
 		echo "All .tex files formatted." \
 	'
 
