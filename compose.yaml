@@ -1,7 +1,7 @@
 services:
   latex:
     image: texlive/texlive:latest
-    container_name: resume_builder
+    container_name: classic-resume_builder
     working_dir: /workdir
     volumes:
       - .:/workdir

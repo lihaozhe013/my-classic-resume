@@ -11,14 +11,14 @@ TEMP_FILES_SUFFIX := bak0
 
 default: compile
 # ----------------- Container Management -----------------
-start:
-	$(COMPOSE) up -d $(SERVICE)
+docker-start:
+	$(COMPOSE) up -d
 
-stop:
+docker-stop:
 	$(COMPOSE) stop
 
-remove:
-	$(COMPOSE) down
+docker-down:
+	$(COMPOSE) down -v
 
 # ----------------- Compilation Tasks -----------------
 compile:
