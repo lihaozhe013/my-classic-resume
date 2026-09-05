@@ -1,0 +1,40 @@
+defaultIndent: "  "
+indentPreamble: 0
+
+removeTrailingWhitespace:
+  beforeProcessing: 1
+  afterProcessing: 1
+
+verbatim:
+  verbatim: 1
+  lstlisting: 1
+  minted: 1
+
+lookForAlignDelims:
+  tabular:
+    multiColumnGrouping: 1
+    alignFinalDoubleBackSlash: 1
+
+logFilePreferences:
+  showEveryYamlRead: 0
+  showAmalgamatedSettings: 0
+  showGitHubInfoFooter: 0
+
+modifyLineBreaks:
+  preserveBlankLines: 1
+  condenseMultipleBlankLinesInto: 1
+  textWrapOptions:
+    columns: 80
+    multipleSpacesToSingle: 0
+    removeBlockLineBreaks: 0
+    when: after
+    comments:
+      wrap: 0
+      inheritLeadingSpace: 0
+    huge: overflow
+
+  environments:
+    BeginStartsOnOwnLine: 0
+    BodyStartsOnOwnLine: 0
+    EndStartsOnOwnLine: 0
+    EndFinishesWithLineBreak: 0

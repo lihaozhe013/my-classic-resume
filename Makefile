@@ -1,3 +1,5 @@
+.PHONY: all compile clean format
+
 default: compile
 
 clean:
@@ -22,18 +24,10 @@ clean:
 	@echo "Cleanup finished."
 
 format:
-	uv run scripts/format.py
-
-dev:
-	uv run scripts/main.py
+	uv run format.py
 
 compile:
-	uv run scripts/compile.py
+	pdflatex resume.tex
 
 all:
-	uv run scripts/compile.py && uv run scripts/compile.py && uv run scripts/compile.py
-
-format-code:
-	uv run ruff format .
-
-.PHONY: all compile clean format
+	pdflatex resume.tex && pdflatex resume.tex && pdflatex resume.tex
