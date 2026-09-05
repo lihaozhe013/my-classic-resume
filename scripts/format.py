@@ -1,10 +1,9 @@
-import os
 from pathlib import Path
 from utils import run_cmd
 
 
 def format_tex_files():
-    base_dir = Path(__file__).resolve().parent / '..'
+    base_dir = Path(__file__).resolve().parent / ".."
 
     print("Finding and formatting all .tex files...")
     tex_files = []
@@ -13,10 +12,9 @@ def format_tex_files():
         tex_files.append(rel_path)
 
     if tex_files:
-        cmds = " && ".join([f"latexindent -s -w {f}" for f in tex_files])
-        docker_cmd = ["docker", "compose", "run", "--rm", "converter", cmds]
+        cmds = ["latexindent", "-s", "-w"] + tex_files
 
-        run_cmd(str(base_dir), docker_cmd)
+        run_cmd(str(base_dir), cmds)
 
     for filepath in base_dir.rglob("*.bak0"):
         filepath.unlink()

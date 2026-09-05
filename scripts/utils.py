@@ -1,9 +1,6 @@
 import subprocess
 import shlex
 import yaml
-import sys
-import os
-import platform
 from pathlib import Path
 
 
@@ -13,7 +10,6 @@ class config_class:
         self.file_name = self.full_config["file_name"]
         self.file_path = base_dir / self.file_name
         file_name_no_extension = Path(self.file_path).stem
-        pdf_name = f"{file_name_no_extension}.pdf"
         self.output_name = file_name_no_extension
         self.output_engine = self.full_config["engine"]
 
@@ -28,13 +24,8 @@ class config_class:
 
 
 def run_cmd(work_dir, command):
-    env = os.environ.copy()
-    if platform.system() != "Windows":
-        env["UID"] = str(os.getuid())
-        env["GID"] = str(os.getgid())
-
     print(f"Running Command: {shlex.join(str(arg) for arg in command)}")
-    subprocess.run(command, cwd=work_dir, env=env, check=True)
+    subprocess.run(command, cwd=work_dir, check=True)
 
 
 def get_filenames_without_extension(directory_path):

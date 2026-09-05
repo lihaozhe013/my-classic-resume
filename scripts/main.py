@@ -1,16 +1,13 @@
 import time
-import shlex
 from watchdog.observers import Observer
 from pathlib import Path
 from change_handler import LaTeXChangeHandler
-from utils import config_class, run_cmd
+from utils import config_class
 
-base_dir = Path(__file__).parent.resolve() / '..'
+base_dir = Path(__file__).parent.resolve() / ".."
 config = config_class(base_dir)
 
 latex_args = [config.output_engine, f"-jobname={config.output_name}", config.file_name]
-
-docker_cmd = ["docker", "compose", "run", "--rm", "converter", shlex.join(latex_args)]
 
 
 def start_watching(path_to_watch, command):
@@ -23,7 +20,7 @@ def start_watching(path_to_watch, command):
     observer.start()
 
     print(f"Now monitoring all .tex files in directory: '{path_to_watch}'")
-    print(f"Press Ctrl+C to stop monitoring...")
+    print("Press Ctrl+C to stop monitoring...")
 
     try:
         # Keep the main thread alive
@@ -38,4 +35,4 @@ def start_watching(path_to_watch, command):
 
 
 if __name__ == "__main__":
-    start_watching(base_dir, docker_cmd)
+    start_watching(base_dir, latex_args)
