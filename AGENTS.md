@@ -5,7 +5,8 @@
 - The English resume in the repository root is the canonical source of truth.
 - Keep every other language version, currently `cn/`, semantically aligned with the latest English version. When the English version changes, update the corresponding translated sections in the same change.
 - Preserve all facts consistently across language versions, including dates, organizations, roles, project names, skills, technologies, links, and descriptions.
-- Do not translate technical terms, proper nouns, product names, company names, organization names, or other terminology. Keep these terms in English in every language version.
+- Preserve existing Chinese wording in the Chinese version. Do not rewrite existing Chinese content into English just to mirror the English version.
+- Translate the prose of newly added content into the target language, but keep newly introduced technical terms, proper nouns, product names, company names, organization names, project names, and other terminology in English.
 
 ## Formatting and validation
 
