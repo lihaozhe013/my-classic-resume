@@ -1,4 +1,4 @@
-.PHONY: all compile clean format
+.PHONY: all compile clean format cn
 
 default: compile
 
@@ -28,6 +28,9 @@ format:
 
 compile:
 	pdflatex resume.tex
+
+cn:
+	cd cn && xelatex resume.tex && xelatex resume.tex
 
 all:
 	pdflatex resume.tex && pdflatex resume.tex && pdflatex resume.tex
