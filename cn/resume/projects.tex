@@ -1,89 +1,108 @@
 %-------------------------------------------------------------------------------
-%	SECTION TITLE
+%\tSECTION TITLE
 %-------------------------------------------------------------------------------
-\cvsection{个人项目}
+\cvsection{Projects}
 %-------------------------------------------------------------------------------
-%	CONTENT
+%\tCONTENT
 %-------------------------------------------------------------------------------
 \begin{cventries}
   \cventry
-  {University of Toronto}
-  {Dinosaur Game on STM32 MCU} % Name
-  {C, STM32, Embedded Systems}
-  {2026年4月} % Date(s)
+  {}
+  {AIO Asset Normalizer}
+  {Rust, egui, Codex, Blender API}
+  {Jul. 2026 - Dec. 2026}
   {
-    \begin{cvitems} % Description(s)
-      \item{使用C语言在STM32F446ZE MCU上开发了一款2D Dinosaur Game, 实现了游戏玩法、GPIO和I2C外设驱动程序, 以及双缓冲视频引擎, 并在3周内交付了一款可运行的游戏。}
-      \item{集成了一个 4$\times$3 Keypad, 用于实时用户控制, 并利用CPU中断实现低延迟的输入处理。}
-      \item{开发了一个轻量级、无OS的实时渲染2D图形引擎, 支持同步驱动2块SSD1306 OLED显示屏, 使用了Double Buffering和DMA技术实现了基于I2C接口的低延迟高稳定性的实施画面传输。}
+    \begin{cvitems}
+      \item{设计并使用 \textbf{Rust} 与 \textbf{egui} 实现 native asset normalization application，支持通过 GUI 和 CLI interfaces 将 FBX、BVH 转换为 GLB，并支持 asset trimming、editing、normalization、tuning 以及 batch processing。}
+      \item{将该 application 集成到 indie game development workflow 中，简化 asset processing，减少 asset redundancy 和 inconsistency，加速 game iteration。}
+      \item{开发 internal AI agent 进行 bone mapping：一键为一对 GLB/BVH files 生成 bone-mapping configurations，将 AI-assisted setup 集成到 art-asset standardization pipeline。}
     \end{cvitems}
   }
 
+  \clearpage
+  %---------------------------------------------------------
   \cventry
-  {University of Toronto}
-  {Runner Game (FPGA Board Game)} % Name
-  {C, RISC-V Assembly, CPUlator}
-  {2025年3月} % Date(s)
+  {}
+  {Augur Git (Open Source Project)}
+  {Rust, gpui, Codex}
+  {Jul. 2026 - Sep. 2026}
   {
-    \begin{cvitems} % Description(s)
-      \item{在DE1-SoC FPGA Board上使用Verilog开发了一个2D Runner Game, 实现核心游戏逻辑、PS/2 Keyboard、音频组件和VGA组件, 并在三周内交付了可玩的游戏。}
-      \item{集成了PS/2 Keyboard以实现实时用户控制, 利用CPU Interupt实现低延迟输入处理。}
-      \item{构建了一个轻量、无OS的2D引擎, 以60帧每秒渲染彩色图像、动画和文字。}
-      \item{开发了一个基本的Square Wave Synthesizer, 在游戏事件(如得分和完成游戏)中实现动态音效。}
+    \begin{cvitems}
+      \item{使用 Rust 和 gpui 构建 cross-platform、local-first desktop Git client，支持 multi-repository tabs、persistent settings、themes、localization，以及 Windows、macOS 和 Linux 上的 responsive UI。}
+      \item{通过 background workers、defensive parsers、syntax-aware inline and side-by-side diffs、commit graphs、branch comparison，以及明确的 staging、commit、fetch、pull、push operations，构建 review-first Git workflow。}
+      \item{集成可配置的 Codex、Claude Code 和 OpenCode profiles、visible agent sessions、AI-assisted commit/merge/rebase workflows，以及 Lua 5.4 automation；在整个 development 过程中广泛使用 AI，并以 Codex 作为 primary coding agent。}
     \end{cvitems}
   }
 
+  %---------------------------------------------------------
   \cventry
-  {University of Toronto}
-  {Greedy Mouse Game (FPGA Board Game)} % Name
-  {Verilog, FPGA Board, ModelSim}
-  {2024年11月} % Date(s)
-  {
-    \begin{cvitems} % Description(s)
-      \item{在DE1-SoC FPGA Board上用Verilog设计并实现了一个2D Greedy Mouse Game, 具备PS/2 Keyboard输入和VGA图形输出功能。}
-      \item{开发了一个PS/2 Keyboard Controller以实现实时用户输入, 并将其与FSM和片上存储模块集成, 用于驱动VGA输出, 实现位图动画的流畅显示并增强游戏视觉效果。}
-      \item{构建了一个轻量、无OS的2D引擎, 以60帧每秒渲染彩色图像、动画和文字。}
-      \item{使用ModelSim和DESim进行早期阶段的仿真和调试, 最终使用Quartus Prime完成综合并部署到FPGA Board, 并进行了反复优化。}
-    \end{cvitems}
-  }
-
-  \cventry
-  {University of Toronto}
-  {GIS Route Optimization Application} % Name
-  {C++, GTK, Git, A*, Dijkstra}
-  {2025年1月 - 2025年4月} % Date(s)
-  {
-    \begin{cvitems} % Description(s)
-      \item{在课程项目的三人小组中, 使用C++和GTK在Mate桌面环境下开发了一个GIS(地图)桌面应用, 实现了地图渲染、地名搜索、最短路径和多停点路径查找功能。}
-      \item{利用Multithreading预处理4GB原始坐标数据, 将其转换为结构化的点、线和多边形格式, 以便在16核测试机器上在50秒内完成从数据解析到画布渲染的全部操作。}
-      \item{实现了包括A*的最短路径计算算法, 以及Dijkstra、Multi-start Greedy和Simulated Annealing, 获得了课程技术分数的90\%。}
-      \item{通过使用TomTom API并整合libcurl的HTTP模块, 实现了实时交通可视化。}
-    \end{cvitems}
-  }
-
-  \cventry
-  {GitHub 开源项目}
-  {贸易流管理系统} % Name
-  {TypeScript, Node.js, PostgreSQL, React}
-  {2025年7月 - 现在} % Date(s)
-  {
-    \begin{cvitems} % Description(s)
-      \item{构建了采用模块化单仓库结构的全栈式交易管理解决方案, 具备基于JWT的RBAC认证机制及 i18n 支持, 以实现订单与财务管理的无缝衔接。}
-      \item{采用Node.js和Express构建高性能后端系统, 运用Decimal.js实现精准金融计算, 并借助ESBuild优化构建产物。}
-      \item{采用React和Ant Design开发响应式前端, 采用组件驱动架构以加速功能交付并保持代码复用性}
-    \end{cvitems}
-  }
-
-  \cventry
-  {University of Toronto}
-  {LPR 系统} % Name
+  {}
+  {License Plate Recognition Systems -- Course Project}
   {Python, PyTorch}
-  {2026年1月 - 2026年4月} % Date(s)
+  {Jan. 2026 -- Apr. 2026}
   {
-    \begin{cvitems} % Description(s)
-      \item{构建了一个基于深度学习的车牌识别系统, 设计了CNN+CRNN神经网络, 编写了用于训练和推理的PyTorch代码, 并完成了模型的训练和测试。}
-      \item{构建了一个Python管道, 用于批量生成车牌图像、为其添加噪点并将其与背景拼接, 自动生成10,000个包含完整车辆背景的训练数据点。}
-      \item{利用Python和uv作为包管理器, 建立了一套全面的数据生成和训练管道, 并编写了完整的项目文档, 以确保训练结果具有高度可重复性。}
+    \begin{cvitems}
+      \item{设计 deep learning based License Plate Recognition System，构建 CNN+CRNN neural network，编写用于 training 和 inference 的 PyTorch code，并完成 model training 和 testing。}
+      \item{构建 Python pipeline，批量生成 license plate images、添加 noise 并将其与 background tile，自动生成 10,000 个包含完整 vehicle background 的 training data points。}
+      \item{使用 Python 和 \texttt{uv} 作为 package manager，建立完整的 data generation 和 training pipeline，并编写完整 project documentation，确保 training results 高度 reproducible。}
+    \end{cvitems}
+  }
+
+  %---------------------------------------------------------
+  \cventry
+  {}
+  {Dinosaur Game on STM32 MCU -- Course Project}
+  {C, STM32, Embedded Systems}
+  {Mar. 2026}
+  {
+    \begin{cvitems}
+      \item{使用 \textbf{C} 在 \textbf{STM32F446ZE Nucleo Board} 上开发 2D Dinosaur Game，实现 gameplay、GPIO 和 I2C peripherals 的 driver、double buffering video engine，并在 3 周内交付 playable game。}
+      \item{集成 4*3 keypad 进行 real-time user control，利用 \textbf{CPU interrupts} 实现 low-latency input handling。}
+      \item{构建 lightweight、OS-independent 2D graphics engine，以 double buffering 和 DMA 驱动 2 个 SSD1306 OLED displays。}
+    \end{cvitems}
+  }
+
+  %---------------------------------------------------------
+  \cventry
+  {}
+  {GIS Route Optimization Application -- Course Project}
+  {C++, GTK, Git, A*, Dijkstra}
+  {Jan. 2025 -- Apr. 2025}
+  {
+    \begin{cvitems}
+      \item{在 3-person team 中，使用 \textbf{C++} 和 \textbf{GTK} 在 Mate Desktop 上开发 GIS desktop application，实现 map rendering、geographical name search、shortest path 和 multi-stop path finding features。}
+      \item{利用 \textbf{multithreading} 预处理 4GB raw coordinate data，将其转换为 structured point、line 和 polygon formats，以便在 16-core test machine 上完成 canvas rendering，耗时低于 50 秒。}
+      \item{实现 pathfinding algorithms，包括用于 shortest path computation 的 \textbf{A*}，以及用于 multi-stop route optimization 的 \textbf{Dijkstra}、\textbf{multi-start greedy} 和 \textbf{simulated annealing}，获得 technical evaluation score 的 90\%。}
+      \item{使用 \textbf{TomTom API} data 和 \textbf{libcurl} HTTP module 集成 real-time traffic visualization。}
+    \end{cvitems}
+  }
+
+  %---------------------------------------------------------
+  \cventry
+  {}
+  {Runner Game (FPGA Board Game) -- Course Project}
+  {C, RISC-V Assembly, FPGA Board, CPUlator}
+  {Mar. 2025}
+  {
+    \begin{cvitems}
+      \item{使用 \textbf{C} 在 \textbf{DE1-SoC FPGA board} 上开发 2D runner game，实现 core game logic、PS/2 keyboard、audio components 和 video components，并在 3 周内交付 playable game。}
+      \item{集成 PS/2 keyboard 进行 real-time user control，利用 \textbf{CPU interrupts} 实现 low-latency input handling。}
+      \item{构建 lightweight、OS-independent 2D graphics engine，以最高 60 FPS 渲染 color images、animations 和 text。}
+      \item{开发 basic square wave synthesizer，在 scoring 和 game completion 等 gameplay events 中实现 dynamic sound effects。}
+    \end{cvitems}
+  }
+
+  %---------------------------------------------------------
+  \cventry
+  {}
+  {TradeFlow System (Open Source)}
+  {TypeScript, Node.js, PostgreSQL, React}
+  {Jul. 2025 -- Present}
+  {
+    \begin{cvitems}
+      \item{设计 full-stack trade management solution，包含 inventory 和 financial tracking 以及 sales analysis。}
+      \item{使用 \textbf{TypeScript}、\textbf{Node.js} 和 \textbf{PostgreSQL} 构建 high-performance backend。}
+      \item{使用 \textbf{React} 和 \textbf{Ant Design} 开发 responsive frontend，采用 component-driven architecture 加速 feature delivery 并保持 code reusability。}
     \end{cvitems}
   }
 \end{cventries}

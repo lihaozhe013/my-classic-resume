@@ -44,10 +44,6 @@
 % If you would like to change the social information separator from a pipe (|) to something else
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
 
-% Manually set the update date shown in the footer
-% Tip: change this value to keep a fixed date instead of using \today
-\newcommand{\updatedate}{September 13, 2025}
-
 % LaTeX Symbols
 \newcommand{\cmr}{\fontfamily{cmr}\selectfont}
 \newcommand{\defaultLaTeX}{{\cmr\LaTeX}}
@@ -70,7 +66,6 @@
 % Leave any of these blank if they are not needed
 \makecvfooter
 {\today}
-% {\updatedate}
 {Haozhe Li~~~·~~~Resume}
 {\thepage}
 
@@ -79,7 +74,7 @@
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
 \input{resume/education.tex}
-\input{resume/skills.tex}
+\input{resume/technical-skills.tex}
 \input{resume/experience.tex}
 \input{resume/projects.tex}
 
